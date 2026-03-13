@@ -148,14 +148,196 @@ const cvData = {
   driving: "Category B license"
 };
 
+type Locale = "en" | "ru";
+
+const cvDataRu: typeof cvData = {
+  ...cvData,
+  title: "Java-разработчик",
+  about: "Мужчина, 23 года, родился 13 ноября 2002",
+  status: "Готов к переезду, готов к командировкам",
+  contact: {
+    ...cvData.contact,
+    location: "Москва, м. Проспект Вернадского",
+    citizenship: "Россия",
+  },
+  experience: [
+    {
+      ...cvData.experience[0],
+      sector: "Финансовый сектор • Банк",
+      description:
+        "Разрабатываю backend-платформу для GigaChat — российской нейросети, созданной Сбером, способной вести диалог, генерировать текст, изображения, код и выполнять аналитические задачи. Участвую в построении высоконагруженной микросервисной архитектуры, обеспечивающей стабильную работу AI-сервиса в реальном времени.",
+      achievements: [
+        "Разработка микросервисов на Java 21 + Spring Boot 3.2, включая асинхронную обработку и поддержку SSE",
+        "Интеграция с Kafka, проектирование событийной архитектуры",
+        "Работа с PostgreSQL, Redis, ClickHouse, реализация производительных API (REST, WebFlux)",
+        "Развертывание с использованием Helm в OpenShift",
+        "Настройка CI/CD в GitLab, мониторинг через Prometheus, Grafana, логирование через ELK",
+        "Подготовка 10+ фич для международной AI-выставки AIJ 2025",
+        "Реализовал Маркетплейс агентов",
+      ],
+    },
+    {
+      ...cvData.experience[1],
+      sector: "Финансовый сектор • Банк",
+      position: "Java-разработчик",
+      description:
+        "Разработка и совершенствование банковского продукта для реструктуризации кредитов, позволяющего клиентам изменить условия кредитного договора в случае финансовых трудностей. Основные задачи команды включают обеспечение полного процесса реструктуризации — от подачи заявки клиентом до успешного завершения операции, а также создание качественных данных для других команд и отчетности. Проект также фокусируется на автоматизации рассмотрения обращений клиентов, включая расчет оптимальных предложений и принятие решений, что способствует улучшению клиентского опыта.",
+      architecture:
+        "1 Монолит, микросервисная архитектура порядка 30 компонентов, между сервисами синхронное взаимодействие по REST, асинхронное через Kafka/Artemis, кеширование Redis, ELK-стек для мониторинга логов, Prometheus и Grafana для метрик, Postgres, вся инфраструктура в k8s.",
+      achievements: [
+        "Миграция с монолитной архитектуры на микросервисы с использованием современных версий Spring Boot и Java",
+        "Перевод системы с IBM MQ на Kafka и интеграция различных сервисов через ArtemisMQ",
+        "Разработка алгоритма расчета кредитных каникул и создание калькулятора на React, размещенного на главной странице банка",
+        "Участие в проектировании новой системы с интеграцией AI для улучшения бизнес-процессов",
+      ],
+    },
+    {
+      ...cvData.experience[2],
+      position: "Java-разработчик",
+      sector: "Информационные технологии, системная интеграция, интернет • Разработка программного обеспечения",
+      description:
+        "Разработка и внедрение кастомизированных решений для компаний энергетического, нефтегазового, финансового и телекоммуникационного секторов. Ключевые проекты включали CRM-систему для атомных станций Росатома (B2B), а также создание ERP и ETL-платформ. Решения были ориентированы на задачи территориально распределенных компаний федерального уровня. Основные цели заключались в построении масштабируемых, отказоустойчивых систем и глубокой интеграции бизнес-процессов с применением современных технологий и их автоматизации.",
+      achievements: [
+        "Архитектура и разработка: спроектировал и внедрил более 20 микросервисов на Spring Boot и Flask для различных бизнес-направлений; разработанный шаблонный сервис стал стандартом для последующих микросервисов",
+        "Автоматизация бизнес-процессов: проектировал и внедрял сложные процессы на Camunda BPM, реализовывал Java Delegates для интеграции с внешними системами и микросервисами",
+        "Отчетность и аналитика: внедрил open-source генератор отчетов BIRT для автоматизации сложной отчетности, что сократило время подготовки документов",
+        "DevOps и инфраструктура: участвовал в настройке CI/CD в GitLab для автоматизации сборки, тестирования и деплоя, повысив надежность и скорость поставки",
+      ],
+    },
+    {
+      ...cvData.experience[3],
+      position: "Java-разработчик, ML, системный администратор Linux",
+      sector:
+        "Информационные технологии, системная интеграция, интернет • Разработка программного обеспечения • Системная интеграция, автоматизация технологических и бизнес-процессов, ИТ-консалтинг",
+      description:
+        "Разработка и интеграция медицинских решений для компаний Medtouch и стартапа AutoHem. В рамках проекта Medtouch велась разработка образовательной медицинской платформы и CRM-системы для управления коммуникациями. В проекте AutoHem было создано устройство для автоматизированного забора венозной крови вне медицинских учреждений, что позволяет сократить затраты на персонал и улучшить точность диагностики. Проект направлен на повышение эффективности работы лабораторий и снижение ошибок при заборе и хранении образцов крови.",
+      achievements: [
+        "Разработка микросервисов на Java с использованием Spring Boot для медицинских платформ",
+        "Автоматизация бизнес-процессов с помощью Python-скриптов",
+        "Разработка и обучение модели сегментации вен на изображениях, интеграция и тестирование системы автоматического забора крови на стенде",
+        "Реализация CI/CD для деплоя и автоматизации процесса обучения ML-моделей",
+        "Интеграция обученных моделей в ПО и успешное тестирование оборудования для автоматического забора венозной крови",
+      ],
+    },
+  ],
+  education: [
+    {
+      ...cvData.education[0],
+      degree: "Высшее",
+      institution: "МИРЭА — Российский технологический университет, Москва",
+      program: "Институт искусственного интеллекта, Анализ безопасности компьютерных систем",
+    },
+    {
+      ...cvData.education[1],
+      degree: "Высшее",
+      institution: "МИРЭА — Российский технологический университет, Москва",
+      program: "Профессиональная переподготовка. Технологии Devops, Программист",
+    },
+  ],
+  skills: {
+    languages: [
+      { name: "Русский", level: "Родной" },
+      { name: "Английский", level: "B2 — Средне-продвинутый" },
+    ],
+    technical: [
+      "Микросервисы", "Git", "Linux", "Bash", "Docker", "SQL", "HTTP", "API",
+      "Spring Framework", "Apache Maven", "Java", "СУБД", "Apache Kafka", "REST",
+      "Microservices", "k8s", "Java Core", "PostgreSQL", "Unix", "Keycloak", "CI/CD",
+      "Hibernate ORM", "JPA", "JUnit", "Spring Boot", "GitHub", "Gitlab", "Kafka",
+      "Redis", "AI",
+    ],
+  },
+  additional: {
+    ...cvData.additional,
+    about:
+      "В свободное время перезагружаюсь прогулками и спортом — это хорошо разгружает голову и часто помогает взглянуть на проблему под другим углом. Иногда беру небольшие pet-проекты и поддерживаю open-source: делаю небольшие доработки, фиксы, улучшаю документацию, а иногда просто разбираюсь в чужом коде и предлагаю изменения через PR. Это помогает держать инженерный тонус, пробовать новые подходы и смотреть на решения шире.",
+    philosophy:
+      "Люблю задачи, где нужно не просто написать код, а разобраться в контексте, аккуратно продумать решение и довести его до стабильного результата. Стараюсь работать так, чтобы после меня было понятно: что сделано, почему так, и как это поддерживать дальше. Ценю прозрачную коммуникацию, уважение в команде и ответственность за качество — от мелочей в реализации до итогового поведения сервиса в проде.",
+    opensource: [
+      {
+        ...cvData.additional.opensource[0],
+        description: "добавил поддержку русского языка",
+      },
+      {
+        ...cvData.additional.opensource[1],
+        description: "исправил NPE при обработке поврежденных чанков",
+      },
+      {
+        ...cvData.additional.opensource[2],
+        description: "расширил функциональность векторных хранилищ",
+      },
+    ],
+  },
+  driving: "Права категории B",
+};
+
+const cvDataByLocale = {
+  en: cvData,
+  ru: cvDataRu,
+} as const;
+
+const localeCopy = {
+  en: {
+    localeToggleLabel: "Localization",
+    exportPdf: "Export to PDF",
+    preparingPdf: "Preparing PDF...",
+    yearsExpLabel: "Years Experience",
+    featuresLabel: "Production Features",
+    throughputLabel: "Peak Throughput",
+    citizenshipLabel: "Citizenship",
+    summaryTitle: "Executive Summary",
+    summarySubtitle: "Backend engineer focused on resilient AI-driven systems",
+    summaryText:
+      "Leading backend engineering for large-scale AI products in regulated domains. Strong track record in microservices modernization, event-driven design, and production reliability. Comfortable driving architecture decisions, delivery, and observability end-to-end.",
+    keyAchievementsTitle: "Key Achievements",
+    recentExperienceTitle: "Recent Experience",
+    recentExperienceSubtitle: "Latest two roles with a timeline view",
+    careerTimelineTitle: "Career Timeline",
+    careerTimelineSubtitle: "Earlier roles and engineering responsibilities",
+    educationTitle: "Education",
+    skillsTitle: "Skills Matrix",
+    additionalTitle: "Additional & Open Source",
+    drivingLabel: "Driving",
+    architectureLabel: "Architecture",
+    technologiesLabel: "Technologies",
+  },
+  ru: {
+    localeToggleLabel: "Локализация",
+    exportPdf: "Скачать PDF",
+    preparingPdf: "Подготовка PDF...",
+    yearsExpLabel: "Лет опыта",
+    featuresLabel: "Фич в проде",
+    throughputLabel: "Пик нагрузки",
+    citizenshipLabel: "Гражданство",
+    summaryTitle: "Профиль",
+    summarySubtitle: "Backend-инженер с фокусом на надежные AI-системы",
+    summaryText:
+      "Разрабатываю и поддерживаю высоконагруженные backend-системы для AI и финтех-продуктов. Сильная сторона — микросервисная архитектура, интеграции и стабильная работа сервисов в продакшене. Веду задачи от проектирования до мониторинга и сопровождения.",
+    keyAchievementsTitle: "Ключевые достижения",
+    recentExperienceTitle: "Последний опыт",
+    recentExperienceSubtitle: "Две последние роли в формате таймлайна",
+    careerTimelineTitle: "Карьерный путь",
+    careerTimelineSubtitle: "Предыдущие роли и инженерные задачи",
+    educationTitle: "Образование",
+    skillsTitle: "Матрица навыков",
+    additionalTitle: "Дополнительно и Open Source",
+    drivingLabel: "Вождение",
+    architectureLabel: "Архитектура",
+    technologiesLabel: "Технологии",
+  },
+} as const;
+
 export function CVTemplate() {
   const cvRef = useRef<HTMLDivElement>(null);
   const [isExporting, setIsExporting] = useState(false);
-  const latestExperience = useMemo(() => cvData.experience.slice(0, 2), []);
-  const earlierExperience = useMemo(() => cvData.experience.slice(2), []);
+  const [locale, setLocale] = useState<Locale>("ru");
+  const copy = localeCopy[locale];
+  const localizedCVData = cvDataByLocale[locale];
+  const latestExperience = useMemo(() => localizedCVData.experience.slice(0, 2), [localizedCVData]);
+  const earlierExperience = useMemo(() => localizedCVData.experience.slice(2), [localizedCVData]);
   const keyAchievements = useMemo(
     () =>
-      cvData.experience
+      localizedCVData.experience
         .slice(0, 2)
         .flatMap((job) =>
           (job.achievements ?? [])
@@ -163,7 +345,7 @@ export function CVTemplate() {
             .map((achievement) => `${job.company}: ${achievement}`),
         )
         .slice(0, 4),
-    [],
+    [localizedCVData],
   );
 
   const themeVars = useMemo(
@@ -206,6 +388,7 @@ export function CVTemplate() {
 
     setIsExporting(true);
     try {
+      await (document as Document & { fonts?: { ready: Promise<void> } }).fonts?.ready;
       const { default: html2pdf } = await import("html2pdf.js");
       const opt = {
         margin: 10,
@@ -217,13 +400,24 @@ export function CVTemplate() {
           backgroundColor: '#ffffff',
           logging: false,
           scrollX: 0,
-          scrollY: 0
+          scrollY: 0,
+          onclone: (clonedDoc: Document) => {
+            const clonedElement = clonedDoc.querySelector(".cv-document");
+            if (!(clonedElement instanceof HTMLElement)) return;
+            clonedElement.classList.add("cv-exporting");
+
+            for (const [name, value] of Object.entries(themeVars)) {
+              if (name.startsWith("--") && typeof value === "string") {
+                clonedElement.style.setProperty(name, value);
+              }
+            }
+          }
         },
         jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' },
         pagebreak: {
           mode: ['css', 'legacy'],
           before: ['.pdf-page-break'],
-          avoid: ['.avoid-break-inside', '.cv-section-title', '.no-break-after']
+          avoid: ['.cv-section-title', '.no-break-after', '.cv-highlight-card', '.cv-role-card', '.cv-edu-item', '.cv-opensource-item']
         }
       };
 
@@ -241,6 +435,19 @@ export function CVTemplate() {
   return (
     <div className="cv-canvas" style={themeVars}>
       <div className="cv-toolbar print-hidden">
+        <div className="cv-locale-toggle" role="group" aria-label={copy.localeToggleLabel}>
+          {(["en", "ru"] as const).map((option) => (
+            <button
+              key={option}
+              type="button"
+              onClick={() => setLocale(option)}
+              className={`cv-locale-button ${locale === option ? "active" : ""}`}
+              aria-pressed={locale === option}
+            >
+              {option.toUpperCase()}
+            </button>
+          ))}
+        </div>
         <button
           type="button"
           onClick={handleExportPDF}
@@ -248,34 +455,34 @@ export function CVTemplate() {
           className="cv-export-button"
         >
           <Download className="h-4 w-4" />
-          {isExporting ? "Preparing PDF..." : "Export to PDF"}
+          {isExporting ? copy.preparingPdf : copy.exportPdf}
         </button>
       </div>
 
-      <div ref={cvRef} className="cv-document">
+      <div ref={cvRef} className={`cv-document ${isExporting ? "cv-exporting" : ""}`.trim()} style={themeVars}>
         <article className="cv-page cv-motion-rise">
           <header className="cv-hero no-break-after">
             <div className="cv-hero-grid">
               <div>
-                <h1 className="cv-name">{cvData.name}</h1>
-                <p className="cv-title">{cvData.title}</p>
+                <h1 className="cv-name">{localizedCVData.name}</h1>
+                <p className="cv-title">{localizedCVData.title}</p>
                 <div className="cv-hero-meta">
-                  <span>{cvData.about}</span>
-                  <span>{cvData.status}</span>
+                  <span>{localizedCVData.about}</span>
+                  <span>{localizedCVData.status}</span>
                 </div>
               </div>
               <div className="cv-stat-grid">
                 <div className="cv-stat-card">
                   <div className="cv-stat-value">4.7</div>
-                  <div className="cv-stat-label">Years Experience</div>
+                  <div className="cv-stat-label">{copy.yearsExpLabel}</div>
                 </div>
                 <div className="cv-stat-card">
                   <div className="cv-stat-value">10+</div>
-                  <div className="cv-stat-label">Production Features</div>
+                  <div className="cv-stat-label">{copy.featuresLabel}</div>
                 </div>
                 <div className="cv-stat-card">
                   <div className="cv-stat-value">100K/s</div>
-                  <div className="cv-stat-label">Peak Throughput</div>
+                  <div className="cv-stat-label">{copy.throughputLabel}</div>
                 </div>
               </div>
             </div>
@@ -284,45 +491,40 @@ export function CVTemplate() {
           <div className="cv-contact-strip no-break-after">
             <ContactLink
               icon={<Phone className="h-3.5 w-3.5" />}
-              href={`tel:${cvData.contact.phone}`}
-              text={cvData.contact.phone}
+              href={`tel:${localizedCVData.contact.phone}`}
+              text={localizedCVData.contact.phone}
             />
             <ContactLink
               icon={<Mail className="h-3.5 w-3.5" />}
-              href={`mailto:${cvData.contact.email}`}
-              text={cvData.contact.email}
+              href={`mailto:${localizedCVData.contact.email}`}
+              text={localizedCVData.contact.email}
             />
             <ContactLink
               icon={<Send className="h-3.5 w-3.5" />}
-              href={normalizeUrl(cvData.contact.telegram)}
-              text={cvData.contact.telegram}
+              href={normalizeUrl(localizedCVData.contact.telegram)}
+              text={localizedCVData.contact.telegram}
             />
             <ContactLink
               icon={<Github className="h-3.5 w-3.5" />}
-              href={cvData.contact.github}
-              text={cvData.contact.github}
+              href={localizedCVData.contact.github}
+              text={localizedCVData.contact.github}
             />
             <div className="cv-contact-item">
               <MapPin className="h-3.5 w-3.5" />
-              <span>{cvData.contact.location}</span>
+              <span>{localizedCVData.contact.location}</span>
             </div>
             <div className="cv-contact-item">
               <MapPin className="h-3.5 w-3.5" />
-              <span>Citizenship: {cvData.contact.citizenship}</span>
+              <span>{copy.citizenshipLabel}: {localizedCVData.contact.citizenship}</span>
             </div>
           </div>
 
           <main className="cv-page-main">
-            <SectionBlock title="Executive Summary" subtitle="Backend engineer focused on resilient AI-driven systems">
-              <p className="cv-summary-copy">
-                Leading backend engineering for large-scale AI products in regulated domains.
-                Strong track record in microservices modernization, event-driven design, and
-                production reliability. Comfortable driving architecture decisions, delivery,
-                and observability end-to-end.
-              </p>
+            <SectionBlock title={copy.summaryTitle} subtitle={copy.summarySubtitle}>
+              <p className="cv-summary-copy">{copy.summaryText}</p>
             </SectionBlock>
 
-            <SectionBlock title="Key Achievements" className="cv-motion-rise cv-motion-delay-1">
+            <SectionBlock title={copy.keyAchievementsTitle} className="cv-motion-rise cv-motion-delay-1">
               <div className="cv-highlight-grid">
                 {keyAchievements.map((achievement, index) => (
                   <div key={index} className="cv-highlight-card avoid-break-inside">
@@ -333,24 +535,32 @@ export function CVTemplate() {
             </SectionBlock>
 
             <SectionBlock
-              title="Recent Experience"
-              subtitle="Latest two roles with a timeline view"
+              title={copy.recentExperienceTitle}
+              subtitle={copy.recentExperienceSubtitle}
               className="cv-motion-rise cv-motion-delay-2"
             >
-              <ExperienceTimeline jobs={latestExperience} condensed />
+              <ExperienceTimeline
+                jobs={latestExperience}
+                condensed
+                labels={{ architecture: copy.architectureLabel, technologies: copy.technologiesLabel }}
+              />
             </SectionBlock>
           </main>
         </article>
 
         <article className="cv-page pdf-page-break">
           <main className="cv-page-main">
-            <SectionBlock title="Career Timeline" subtitle="Earlier roles and engineering responsibilities">
-              <ExperienceTimeline jobs={earlierExperience} condensed />
+            <SectionBlock title={copy.careerTimelineTitle} subtitle={copy.careerTimelineSubtitle}>
+              <ExperienceTimeline
+                jobs={earlierExperience}
+                condensed
+                labels={{ architecture: copy.architectureLabel, technologies: copy.technologiesLabel }}
+              />
             </SectionBlock>
 
             <div className="cv-two-col">
-              <SectionBlock title="Education">
-                {cvData.education.map((edu, index) => (
+              <SectionBlock title={copy.educationTitle}>
+                {localizedCVData.education.map((edu, index) => (
                   <div key={index} className="cv-edu-item avoid-break-inside">
                     <div className="cv-edu-year">{edu.year} · {edu.degree}</div>
                     <p className="cv-edu-title">{edu.institution}</p>
@@ -359,31 +569,31 @@ export function CVTemplate() {
                 ))}
               </SectionBlock>
 
-              <SectionBlock title="Skills Matrix">
+              <SectionBlock title={copy.skillsTitle}>
                 <div className="cv-language-list">
-                  {cvData.skills.languages.map((lang, index) => (
+                  {localizedCVData.skills.languages.map((lang, index) => (
                     <div key={index} className="cv-language-item">
                       {lang.name} · {lang.level}
                     </div>
                   ))}
                 </div>
                 <div className="cv-skill-cloud" style={{ marginTop: "0.55rem" }}>
-                  {cvData.skills.technical.map((skill, index) => (
+                  {localizedCVData.skills.technical.map((skill, index) => (
                     <span key={`${skill}-${index}`} className="cv-chip">
                       {skill}
                     </span>
                   ))}
                 </div>
-                <p className="cv-driving">Driving: {cvData.driving}</p>
+                <p className="cv-driving">{copy.drivingLabel}: {localizedCVData.driving}</p>
               </SectionBlock>
             </div>
 
-            <SectionBlock title="Additional & Open Source">
-              <p className="cv-additional-copy">{cvData.additional.about}</p>
-              <p className="cv-additional-copy">{cvData.additional.philosophy}</p>
+            <SectionBlock title={copy.additionalTitle}>
+              <p className="cv-additional-copy">{localizedCVData.additional.about}</p>
+              <p className="cv-additional-copy">{localizedCVData.additional.philosophy}</p>
 
               <div className="cv-links">
-                {cvData.additional.links.map((link, index) => (
+                {localizedCVData.additional.links.map((link, index) => (
                   <a
                     key={index}
                     href={link.url}
@@ -397,7 +607,7 @@ export function CVTemplate() {
               </div>
 
               <div className="cv-opensource" style={{ marginTop: "0.55rem" }}>
-                {cvData.additional.opensource.map((project, index) => (
+                {localizedCVData.additional.opensource.map((project, index) => (
                   <div key={index} className="cv-opensource-item avoid-break-inside">
                     <p className="cv-opensource-title">{project.project}</p>
                     <p className="cv-opensource-note">{project.description}</p>
@@ -432,7 +642,7 @@ function SectionBlock({ title, subtitle, className, children }: SectionProps) {
     <section className={`cv-section ${className ?? ""}`.trim()}>
       <h2 className="cv-section-title no-break-after">{title}</h2>
       {subtitle ? <p className="cv-section-subtitle">{subtitle}</p> : null}
-      <div className="avoid-break-inside">{children}</div>
+      <div>{children}</div>
     </section>
   );
 }
@@ -440,9 +650,13 @@ function SectionBlock({ title, subtitle, className, children }: SectionProps) {
 type ExperienceTimelineProps = {
   jobs: typeof cvData.experience;
   condensed?: boolean;
+  labels: {
+    architecture: string;
+    technologies: string;
+  };
 };
 
-function ExperienceTimeline({ jobs, condensed = false }: ExperienceTimelineProps) {
+function ExperienceTimeline({ jobs, condensed = false, labels }: ExperienceTimelineProps) {
   return (
     <div className="cv-timeline">
       {jobs.map((job, index) => {
@@ -479,7 +693,7 @@ function ExperienceTimeline({ jobs, condensed = false }: ExperienceTimelineProps
 
               {roleArchitecture ? (
                 <p className="cv-role-copy">
-                  <strong>Architecture:</strong> {roleArchitecture}
+                  <strong>{labels.architecture}:</strong> {roleArchitecture}
                 </p>
               ) : null}
 
@@ -490,7 +704,7 @@ function ExperienceTimeline({ jobs, condensed = false }: ExperienceTimelineProps
               </ul>
 
               <div className="cv-tech-strip">
-                <strong>Technologies:</strong> {job.technologies}
+                <strong>{labels.technologies}:</strong> {job.technologies}
               </div>
             </div>
           </article>
